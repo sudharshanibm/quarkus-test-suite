@@ -564,11 +564,11 @@ public abstract class BaseHttpAdvancedReactiveIT {
         return Protocol.HTTPS;
     }
 
-    private String getAppEndpoint() {
+    protected String getAppEndpoint() {
         return getApp().getURI(getProtocol()).withPath(ROOT_PATH).toString();
     }
 
-    private WebClientOptions defaultVertxHttpClientOptions() {
+    protected WebClientOptions defaultVertxHttpClientOptions() {
         return new WebClientOptions().setProtocolVersion(HttpVersion.HTTP_2).setSsl(true).setVerifyHost(false)
                 .setUseAlpn(true)
                 .setTrustStoreOptions(new JksOptions().setPassword(PASSWORD).setPath(defaultTruststore()));
